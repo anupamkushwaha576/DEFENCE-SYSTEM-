@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101b2a" />
+    <title>SatyaSetu — Information Verification Desk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="SatyaSetu home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>SatyaSetu <small>COMMUNITY VERIFY</small></span>
+      </a>
+      <div class="top-note"><span class="live-dot"></span> Share responsibly</div>
+    </header>
+
+    <main id="home">
+      <section class="intro">
+        <div class="intro-copy">
+          <p class="eyebrow">In a crisis, accurate information matters</p>
+          <h1>Check first.<br /><span>Share later.</span></h1>
+          <p class="intro-text">Report a suspicious news item, photo, or video. This demo is designed to pass the information you provide to a relevant review desk.</p>
+          <a class="primary-link" href="#report">Report suspicious information <span aria-hidden="true">↓</span></a>
+        </div>
+        <aside class="notice-card">
+          <span class="notice-icon" aria-hidden="true">!</span>
+          <div><strong>Safety first</strong><p>Do not share your exact location, identity, or other sensitive information publicly. Do not visit a dangerous place to try to verify a claim.</p></div>
+        </aside>
+      </section>
+
+      <section class="dashboard" aria-labelledby="map-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Reports and review</p>
+            <h2 id="map-heading">Information source map</h2>
+          </div>
+          <span class="demo-badge">Demo map · No live data</span>
+        </div>
+        <div class="map-layout">
+          <div class="map-panel">
+            <div class="map-label"><span class="map-pin-icon"></span> Reported locations</div>
+            <div class="map-canvas" id="mapCanvas" role="img" aria-label="Illustrative map of reported locations">
+              <svg class="map-art" viewBox="0 0 800 480" preserveAspectRatio="none" aria-hidden="true">
+                <path class="land" d="M91 100 143 60 207 77 242 45 310 72 350 50 402 89 454 63 503 95 568 76 616 119 681 112 727 164 692 207 728 253 690 295 703 346 651 376 621 425 560 411 514 448 457 416 398 433 355 397 293 420 250 378 197 384 177 332 128 313 141 268 92 237 114 191 73 151Z" />
+                <path class="waterway" d="M89 304 C195 254 212 177 316 195 S429 299 523 237 638 193 746 224" />
+                <path class="road" d="M95 361 256 262 386 309 526 167 699 141" />
+                <path class="road road-alt" d="M179 92 260 202 347 261 393 393" />
+                <path class="road road-alt" d="M284 102 428 145 553 276 641 364" />
+                <path class="road road-alt" d="M118 218 292 222 420 198 605 112" />
+                <circle class="map-town" cx="260" cy="202" r="5"/><circle class="map-town" cx="428" cy="145" r="5"/><circle class="map-town" cx="526" cy="276" r="5"/><circle class="map-town" cx="347" cy="261" r="5"/><circle class="map-town" cx="605" cy="112" r="5"/>
+              </svg>
+              <span class="map-place place-one">Northern area</span><span class="map-place place-two">Central area</span><span class="map-place place-three">Southern area</span>
+              <button class="pin pin-one active" type="button" data-report="r1" aria-label="Details for report 1">1</button>
+              <button class="pin pin-two" type="button" data-report="r2" aria-label="Details for report 2">2</button>
+              <button class="pin pin-three" type="button" data-report="r3" aria-label="Details for report 3">3</button>
+              <div class="map-compass" aria-hidden="true">N<span>↑</span></div>
+              <div class="map-caption">Illustrative only · Not a real geographic location</div>
+            </div>
+            <div class="map-legend"><span><i class="legend-dot pending"></i> Awaiting review</span><span><i class="legend-dot checking"></i> Under review</span><span><i class="legend-dot checked"></i> Status updated</span></div>
+          </div>
+          <aside class="reports-panel" aria-label="Sample reports">
+            <div class="panel-title"><h3>Recent reports</h3><span id="reportCount">03 samples</span></div>
+            <div id="reportList" class="report-list">
+              <button class="report-item selected" type="button" data-report="r1"><span class="report-number">01</span><span class="report-info"><strong>An old video is being presented as a new event</strong><small>Northern area · 12 minutes ago</small></span><span class="status-pill pending-pill">Awaiting review</span></button>
+              <button class="report-item" type="button" data-report="r2"><span class="report-number">02</span><span class="report-info"><strong>An alert message from an unknown source</strong><small>Central area · 28 minutes ago</small></span><span class="status-pill review-pill">Under review</span></button>
+              <button class="report-item" type="button" data-report="r3"><span class="report-number">03</span><span class="report-info"><strong>Misleading caption accompanying an image</strong><small>Southern area · 46 minutes ago</small></span><span class="status-pill checked-pill">Updated</span></button>
+            </div>
+            <p class="sample-note">These are fictional examples only. None of these reports have been verified.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="lower-grid" id="report">
+        <div class="form-card">
+          <div class="section-heading form-heading"><div><p class="eyebrow">Safe reporting</p><h2>Submit suspicious information</h2></div><span class="step-number">01 / 02</span></div>
+          <p class="form-description">Share only information that is safe to provide. Do not include private or sensitive details.</p>
+          <form id="reportForm">
+            <label for="claim">What is being claimed? <span>Required</span></label>
+            <textarea id="claim" name="claim" rows="3" maxlength="240" placeholder="Example: This post presents an old video as an event happening today…" required></textarea>
+            <div class="field-row">
+              <div class="field"><label for="area">General area</label><select id="area" name="area"><option>Do not share area</option><option>Northern area</option><option>Central area</option><option>Southern area</option><option value="new-place">New place</option></select></div>
+            </div>
+            <div id="customAreaField" class="field custom-area-field" hidden>
+              <label for="customArea">Enter a general place name <span>Required</span></label>
+              <input id="customArea" name="customArea" type="text" maxlength="60" placeholder="Example: East district" />
+            </div>
+            
+            <label for="imageEvidence">Attach an image <span class="optional">Optional</span></label>
+            <input id="imageEvidence" name="imageEvidence" type="file" accept="image/*" aria-describedby="imageHelp" />
+            <small id="imageHelp" class="image-help">Image files only. The image is previewed on this device and is not uploaded.</small>
+            <div id="imagePreview" class="image-preview" hidden>
+              <img id="imagePreviewPhoto" alt="Selected image preview" />
+              <div class="image-preview-info"><strong id="imageFileName"></strong><button id="removeImage" type="button">Remove</button></div>
+            </div>
+            <div class="form-bottom"><span class="privacy-note">🔒 This demo does not send information to a server.</span><button type="submit" class="submit-button">Add report <span aria-hidden="true">→</span></button></div>
+            <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <aside class="authority-card">
+          <div class="authority-top"><span class="authority-icon" aria-hidden="true">◎</span><span class="demo-badge">Example desk</span></div>
+          <p class="eyebrow">For review</p><h2>Nearby review desk</h2>
+          <p class="authority-copy">Select a report and prepare a verification request for this example desk. This demo does not contact a real authority.</p>
+          <div class="desk-detail"><span class="desk-status"></span><div><strong id="deskName">Northern Area Information Review Desk</strong><small id="deskArea">Northern area · Example</small></div></div>
+          <div class="review-result" aria-labelledby="reviewResultTitle">
+            <p id="reviewResultTitle" class="review-result-title">Demo review result</p>
+            <div class="review-actions">
+              <button class="review-button correct-button" type="button" data-verdict="correct">Mark correct</button>
+              <button class="review-button false-button" type="button" data-verdict="false">Mark false</button>
+            </div>
+            <p class="review-caveat">Demo only: this does not verify the claim or represent an official authority decision.</p>
+          </div>
+          <label for="message">Verification request message</label>
+          <textarea id="message" name="message" rows="3" maxlength="400" placeholder="Add any safe context to help review this report."></textarea>
+          <button class="message-button" id="messageButton" type="button">Prepare verification request <span aria-hidden="true">↗</span></button>
+          <p id="deskFeedback" class="form-feedback" role="status" aria-live="polite"></p>
+          <p class="authority-footnote">This page does not send a message to any official. For real contacts, check the relevant area's official website or a verified channel.</p>
+        </aside>
+      </section>
+      <footer><span>SatyaSetu · Verify information safely</span><span>Demo prototype — not a real emergency or government service</span></footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
